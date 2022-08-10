@@ -2,7 +2,6 @@ import * as dotenv from "dotenv";
 import { HardhatUserConfig, task } from "hardhat/config";
 import "@nomiclabs/hardhat-ethers";
 import "@nomiclabs/hardhat-etherscan";
-import "@nomiclabs/hardhat-waffle";
 import "@nomiclabs/hardhat-web3";
 
 import "@typechain/hardhat";
@@ -10,6 +9,7 @@ import "@typechain/hardhat";
 import "@nomicfoundation/hardhat-toolbox";
 import "hardhat-gas-reporter";
 import "hardhat-watcher";
+import "./tasks/deploy.ts";
 
 dotenv.config();
 
@@ -59,11 +59,12 @@ const config: HardhatUserConfig = {
     ftmtestnet: {
       url: "https://rpc.testnet.fantom.network/",
       accounts: [process.env.PRIVATE_KEY || ""],
+      loggingEnabled: true
     },
     
     bsc:{
       url:"https://bsc-dataseed1.binance.org",
-      accounts: {mnemonic: process.env.MNEMONIC},
+      accounts: [process.env.PRIVATE_KEY || ""],
     },
     bsctestnet: {
       url: "https://data-seed-prebsc-1-s2.binance.org:8545/",
