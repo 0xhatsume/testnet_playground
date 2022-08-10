@@ -10,6 +10,7 @@ artifacts/*
 #!artifacts/build-info/
 #!artifacts/contracts/
 package-lock.json
+typechain-types
 
 #IDEs
 .vscode/
