@@ -52,6 +52,15 @@ const config: HardhatUserConfig = {
 
     // deploying more on ftm testnet cos their faucet gives gas readily
 
+    ftm: {
+      url: "https://rpc.ftm.tools/",
+      accounts: [process.env.PRIVATE_KEY || ""],
+    },
+    ftmtestnet: {
+      url: "https://rpc.testnet.fantom.network/",
+      accounts: [process.env.PRIVATE_KEY || ""],
+    },
+    
     bsc:{
       url:"https://bsc-dataseed1.binance.org",
       accounts: {mnemonic: process.env.MNEMONIC},
